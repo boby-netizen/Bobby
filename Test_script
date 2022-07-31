@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 from netmiko import ConnectHandler
 import re
 import sys
@@ -11,8 +12,8 @@ device["device_type"] = "cisco_ios"
 show_config = "show running-config int {}"
 
 with ConnectHandler(ip=device["address"],
-		    port=device["ssh_port"],
-		    username=device["username"],
+		                port=device["ssh_port"],
+		                username=device["username"],
                     password=["password"],
                     device_type=["device_type"]) as ch:
 
