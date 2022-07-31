@@ -1,0 +1,22 @@
+from netmiko import ConnectHandler
+import re
+import sys
+
+sys.path.append("..")
+from device_info import iox_xe1 as device
+
+device["device_type"] = "cisco_ios"
+#check the device type for Nexus
+
+show_config = "show running-config int {}"
+
+with ConnectHandler(ip=device["address"],
+		    port=device["ssh_port"],
+		    username=device["username"],
+                    password=["password"],
+                    device_type=["device_type"]) as ch:
+
+command=show_config.format("GigabitEthernet2")
+interface=ch.send_command(command)
+
+print(interface)
