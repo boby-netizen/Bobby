@@ -7,7 +7,7 @@ sys.path.append("..")
 from device_info import iox_xe1 as device
 
 device["device_type"] = "cisco_ios"
-#check the device type for Nexus
+#check the device type for Nexussss
 
 show_config = "show running-config int {}"
 
